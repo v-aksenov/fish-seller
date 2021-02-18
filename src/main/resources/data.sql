@@ -1,0 +1,1 @@
+INSERT INTO FISHES (id, price, title) VALUES (10, 200, 'Salmon')
