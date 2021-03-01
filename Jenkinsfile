@@ -7,6 +7,7 @@ pipeline {
             steps {
                 withMaven(maven : 'maven_3_5_0') {
                     sh 'mvn clean compile'
+                    stash includes: 'target/*.jar', name: 'targetfiles'
                 }
             }
         }
@@ -23,7 +24,8 @@ pipeline {
 
         stage ('Run Stage') {
             steps {
-                sh 'nohup java -jar /var/lib/jenkins/workspace/Fish-seller-pipeline/target/fish-seller-0.0.1-SNAPSHOT.jar'
+                unstash 'targetfiles'
+                sh 'nohup java -jar fish-seller-0.0.1-SNAPSHOT.jar'
             }
         }
     }
