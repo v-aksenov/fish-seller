@@ -21,11 +21,9 @@ pipeline {
         }
 
 
-        stage ('Deployment Stage') {
+        stage ('Run Stage') {
             steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn deploy'
-                }
+                sh 'java -jar target/fish-seller-0.0.1-SNAPSHOT.jar'
             }
         }
     }
