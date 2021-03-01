@@ -23,7 +23,7 @@ pipeline {
 
         stage ('Run Stage') {
             steps {
-                sh 'java -jar target/fish-seller-0.0.1-SNAPSHOT.jar'
+                sh 'nohup java -jar /var/lib/jenkins/workspace/Fish-seller-pipeline/target/fish-seller-0.0.1-SNAPSHOT.jar'
             }
         }
     }
