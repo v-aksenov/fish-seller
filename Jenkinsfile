@@ -7,8 +7,8 @@ pipeline {
             steps {
                 withMaven(maven : 'maven_3_5_0') {
                     sh 'mvn clean compile'
-                    stash includes: 'target/*.jar', name: 'targetfiles'
                 }
+                stash includes: 'target/*.jar', name: 'targetfiles'
             }
         }
 
