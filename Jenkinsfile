@@ -31,7 +31,7 @@ pipeline {
 
 
         stage ('Run Stage') {
-            agent { dockerfile true }
+
             steps {
                 sh 'docker run'
             }
