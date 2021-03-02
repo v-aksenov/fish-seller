@@ -20,12 +20,19 @@ pipeline {
             }
         }
 
+        stage ('Package Stage') {
 
-        stage ('Deployment Stage') {
             steps {
                 withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn deploy'
+                    sh 'mvn package'
                 }
+            }
+        }
+
+
+        stage ('Run Stage') {
+            steps {
+                sh 'JENKINS_NODE_COOKIE=dontKillMe nohup java -jar target/fish-seller-0.0.1-SNAPSHOT.jar &'
             }
         }
     }
