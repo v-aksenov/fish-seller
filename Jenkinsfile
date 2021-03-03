@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+    
         stage ('Compile Stage') {
 
             steps {
@@ -33,7 +34,15 @@ pipeline {
         stage ('Run Stage') {
 
             steps {
-                sh 'docker run'
+                sh """
+                docker ps -a \
+                    | awk '{ print \$1,\$2 }' \
+                    | grep fish-seller \
+                    | awk '{print \$1 }' \
+                    | xargs -I {} docker rm -f {}
+                """
+                sh 'docker build -t fish-seller .'
+                sh 'docker run -dp 8080:8080 fish-seller'
             }
         }
     }
