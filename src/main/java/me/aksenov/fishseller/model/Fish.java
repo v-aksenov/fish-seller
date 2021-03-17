@@ -1,5 +1,6 @@
 package me.aksenov.fishseller.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Value;
 import org.hibernate.annotations.Generated;
@@ -16,6 +17,7 @@ public class Fish {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
 
     BigDecimal price;
