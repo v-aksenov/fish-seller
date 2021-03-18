@@ -21,4 +21,6 @@ public class Fish {
     BigDecimal price;
 
     String title;
+
+    String;
 }
