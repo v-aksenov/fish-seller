@@ -22,5 +22,5 @@ public class Fish {
 
     String title;
 
-    String;
+    String description;
 }
