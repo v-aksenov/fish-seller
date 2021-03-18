@@ -2,8 +2,6 @@ package me.aksenov.fishseller.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Value;
-import org.hibernate.annotations.Generated;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +21,4 @@ public class Fish {
     BigDecimal price;
 
     String title;
-
-    String description;
 }
